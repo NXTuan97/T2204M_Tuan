@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment JS 3</title>
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/ass3js.css"/>
+</head>
+<body>
+<div class="container">
+    <div class = "city-select-container">
+        <input type="text" name="cityName" id="cityName"/>
+        <button type="button" onclick="inputCity();">Select city</button>
+    </div>
+    <div class="weather-card-container">
+<!--        <div class="weather-card">-->
+<!--            <div id="date-time">2020-07-27 15:00:00</div>-->
+<!--        </div>-->
+<!--        <div class="col-container">-->
+<!--            <div class="col-left">-->
+<!--                <div id="temp">27<sup>o</sup>C</div>-->
+<!--                <div id="desc">light rain</div>-->
+<!--            </div>-->
+<!--            <div class="col-righ">-->
+<!--                <div id="icon"><img src="http://openweathermap.org/img/wn/04n@2x.png"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+
+<!--PHAN JS-->
+<script type="text/javascript" src="../libs/jquery/jquery.js"></script>
+<script type="text/javascript">
+    $.ajax({
+        url:"http://api.openweathermap.org/data/2.5/forecast",
+        method:"get",
+        data:{
+            q:"Hanoi",
+            appid:"09a71427c59d38d6a34f89b47d75975c",
+            unit:"metric",
+        },
+        success: function (data){
+            //Vong lap them cac the weather-card
+            for(var i = 0; i < data.list.length; i++) {
+                $(".weather-card-container").append(
+                    '<div class="weather-card">\n' +
+                    '                <div id="date-time' +
+                    i +
+                    '">2020-07-27 15:00:00</div>\n' +
+                    '                <div class="col-container">\n' +
+                    '                    <div class="col-left">\n' +
+                    '                        <div id="temp' +
+                    i +
+                    '">27.69<sup>o</sup>C</div>\n' +
+                    '                        <div  id="desc' +
+                    i +
+                    '">overcast clouds</div>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="col-righ">\n' +
+                    '                        <div  id="icon' +
+                    i +
+                    '"><img src="images/assignment-js-3.png"/></div>\n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '            </div>'
+                )
+            };
+            for(var i = 0; i < data.list.length; i++) {
+                    $('#date-time'+i).text(data.list[i].dt_txt);
+                    $('#temp'+i).html(data.list[i].main.temp + "<sup>o</sup>C");
+                    $('#desc'+i).text(data.list[i].weather[0].description);
+                    $('#icon'+i).html('<img src="https://openweathermap.org/img/wn/'+data.list[i].weather[0].icon+'@2x.png"/>');
+                };
+        }
+    })
+    // Hàm khi thay đổi input
+    function inputCity() {
+        var city = $("#cityName").val();
+        $.ajax({
+            url: "http://api.openweathermap.org/data/2.5/forecast",
+            method: "get",
+            data: {
+                q: city,
+                appid: "09a71427c59d38d6a34f89b47d75975c",
+                units: "metric"
+            },
+            success: function (data) {
+                //Vòng lặp thêm các thẻ weather-card
+                for(var i = 0; i < data.list.length; i++) {
+                    $("#weather-card-container").append(
+                        '<div class="weather-card">\n' +
+                        '                <div class="date-time" id="date-time' +
+                        i +
+                        '">2020-07-27 15:00:00</div>\n' +
+                        '                <div class="col-container">\n' +
+                        '                    <div class="col-left">\n' +
+                        '                        <div class="temp" id="temp' +
+                        i +
+                        '">27.69<sup>o</sup>C</div>\n' +
+                        '                        <div class="desc" id="desc' +
+                        i +
+                        '">overcast clouds</div>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="col-righ">\n' +
+                        '                        <div class="icon" id="icon' +
+                        i +
+                        '"><img src="images/assignment-js-3.png"/></div>\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '            </div>'
+                    )
+                };
+                //Biding data vào các weather-card
+                for(var i = 0; i < data.list.length; i++) {
+                    $('#date-time'+i).text(data.list[i].dt_txt);
+                    $('#temp'+i).html(data.list[i].main.temp + "<sup>o</sup>C");
+                    $('#desc'+i).text(data.list[i].weather[0].description);
+                    $('#icon'+i).html('<img src="https://openweathermap.org/img/wn/'+data.list[i].weather[0].icon+'@2x.png"/>');
+                };
+            }
+        })
+    }
+</script>
+</body>
+</html>
