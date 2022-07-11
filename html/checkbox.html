@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/form.css"/>
+    <link rel="stylesheet" href="libs/fontawesome/css/all.css">
+</head>
+<body>
+<body>
+<header class="section header">
+    <div class="container">
+    </div>
+</header>
+<nav class="section nav">
+    <div class="container">
+    </div>
+</nav>
+<section class="section main">
+    <div class="container">
+        <br>
+        <form method="get" action="#">
+            <div>
+                <label>Full Name : </label>
+                <input required name="fullname" type="text" placeholder="Full Name."/>
+            </div>
+            <div>
+                <label>Email</label>
+                <input required name="myemail" type="email" placeholder="Email."/>
+            </div>
+            <div>
+                <label>Passworld</label>
+                <input required name="pwd" type="password" placeholder="Passworld."/>
+            </div>
+            <div>
+                <label>Birthday</label>
+                <input name="bth" type="date" placeholder="Birthday."/>
+            </div>
+            <div>
+                <label>Month</label>
+                <input name="month" type="month" placeholder="Month."/>
+            </div>
+            <div>
+                <label>Week</label>
+                <input name="w" type="week" placeholder="Week."/>
+            </div>
+            <div>
+                <label>My color</label>
+                <input name="mycolor" type="color" placeholder="Color."/>
+            </div>
+            <div>
+                <label>My number</label>
+                <input name="mynumber" type="number" placeholder="Number."/>
+            </div>
+            <div>
+                <label>My tel</label>
+                <input name="tel" type="tel" placeholder="Phone."/>
+            </div>
+            <div>
+                <label>Gender</label>
+                <label><input name="gender" type="radio" value="male"/>Male</label>
+                <label><input name="gender" type="radio" value="female"/>Female</label>
+                <label> <input name="gender" type="radio" value="other"/>Other</label>
+            </div>
+            <div>
+                <label><input name="confirm" type="checkbox"/>Tôi đã đọc và đồng ý với điều khoản</label>
+            </div>
+            <div>
+                <label>Country</label>
+                <select name="country">
+                    <option value="VN">Vietnam</option>
+                    <option value="US">US</option>
+                    <option value="UK">UK</option>
+                </select>
+            </div>
+            <div>
+                <label>Introduction</label>
+                <textarea name="introduction" rows="3" cols="50"></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+                <button type="button">Button</button>
+            </div>
+        </form>
+    </div>
+</section>
+<footer class="section footer">
+    <div class="container">
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/vi-VN/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

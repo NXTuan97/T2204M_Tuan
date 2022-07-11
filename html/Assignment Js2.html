@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ass2</title>
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/Assign2.css">
+</head>
+<body>
+<div class="main">
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <div class="row">
+                <div class="col">
+                    <p id="icon"><img src="http://openweathermap.org/img/wn/04n@2x.png"></p>
+                </div>
+                <div class="col">
+                    <p id="temp">34</p>
+                </div>
+                <div class="col">
+                    <p id="pre">Precititation: 0%</p>
+                    <p id="hump">Humidity: 59%</p>
+                    <p id="wind">Wind: 14km/h</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-5" id="baby">
+            <p id="city">Cầu Giấy, Hà Nội</p>
+            <p id="date-time">Tuesday, 11:00</p>
+            <script>
+                var today = new Date();
+                var time = today.getHours() + ":" + today.getMinutes() ;
+                document.getElementById("date-time").innerHTML = time;
+            </script>
+            <p id="weather">Mostly Sunny</p>
+        </div>
+    </div>
+</div>
+</div>
+    <script type="text/javascript" src="/libs/jquery/jquery.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url:"https://api.openweathermap.org/data/2.5/weather",
+            method:"get",
+            data:{
+                q:"Hanoi",
+                appid: "09a71427c59d38d6a34f89b47d75975c",
+                unit: "metric",
+            },
+            success: function (data) {
+                var ct = $("#city");
+                ct.text(data.name+","+data.sys.country);
+                $("#temp").html(data.main.temp);
+                $("#temp").css("font-size","80px")
+                $("#temp").append("<sup>o</sup>C|<sup>o</sup>F")
+                $("#hump").html("Humidity: "+data.main.humidity+"%");
+                $("#icon").html("<img src='http://openweathermap.org/img/wn/"+
+                    data.weather[0].icon+"@2x.png'/>");
+                $("#wind").html("Wind: "+data.wind.speed+"km/h");
+            }
+        })
+    </script>
+
+</body>
+</html>

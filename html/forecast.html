@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Forecast</title>
+  <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/forecast.css">
+</head>
+<body>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="col-content">
+                    <h3>2020-07-17 15:00:00</h3>
+                    <h2>27.69<sup>o</sup>C</h2>
+                    <p>light rain</p>
+                    <img src="http://openweathermap.org/img/wn/04n@2x.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/libs/jquery/jquery.js"></script>
+<script type="text/javascript">
+    $.ajax({
+        url:"http://api.openweathermap.org/data/2.5/forecast?",
+        data:{
+            q:"Hanoi",
+            appid:"09a71427c59d38d6a34f89b47d75975c",
+            units:"metric",
+        },
+        success: function (data){
+            var list =data.list;
+            for(var i=0;i<list.length;i++){
+                var html_col ="            <div class=\"col-3\">\n" +
+                    "                <div class=\"col-content\">\n" +
+                    "                    <h3>"+list[i].dt_text+"</h3>\n" +
+                    "                    <h2>"+list[i].main.temp"<sup>o</sup>C</h2>\n" +
+                    "                    <p>"+ list[i].weather.description"</p>\n" +
+                    "                    <img src=\"http://openweathermap.org/img/wn/04n@2x.png\">\n" +
+                    "                </div>\n" +
+                    "            </div>";
+                $("#forecast").append(html_col);
+            }
+        }
+    })
+</script>
+</body>
+</html>

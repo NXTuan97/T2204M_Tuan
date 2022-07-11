@@ -1,0 +1,22 @@
+.body{
+    background-image: url("https://th.bing.com/th/id/OIP.ZwwQv5aEcNo6MuQbHe5CHwHaEK?w=295&h=180&c=7&r=0&o=5&pid=1.7") ;
+}
+.col-content{
+    float:left;
+    width: 100%;
+    color: #ffffff;
+    background-color: #6c757d70;
+    padding: 20px;
+    margin: 15px 0;
+    height: 180px;
+    border-radius: 6px;
+}
+.col-content h3{
+    font-size: 18px;
+}
+.col-content p{
+    font-size: 15px;
+}
+.col-content img{
+    transform: translate(150px,-100px) ;
+}
