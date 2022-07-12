@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Exam</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/myExam.css">
+</head>
+<body>
+<nav class="section nav">
+    <div class="container">
+        <div>
+            <div class="total">
+                <i class="fa-solid fa-left-long"></i>
+                <p><b>Checkout Form</b></p>
+                <p id="tit"><b>Total To Pay 93$</b></p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="https://usa.visa.com/">
+                    <img id="visa" src="/imgExam/visa.png">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="https://www.paypal.com/vn/home">
+                    <img id="paypal" src="/imgExam/paypal.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form>
+                <div>
+                    <div class="number">
+                        <p>Name on Card</p>
+                        <input class="size" required name="Type" type="text" placeholder="John Smith"/>
+                    </div>
+                    <div class="number">
+                        <div class="row">
+                            <div class="col">
+                                <p>Card Number</p>
+                                <input required name="pwd" type="password" placeholder="Card Number"/>
+                            </div>
+                            <div class="col">
+                                <p>CVV</p>
+                                <input id="cv" required name="cvv" type="cvv" placeholder="CVV"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="number">
+                        <p>Expiration Date</p>
+                        <input class="size" name="dte" type="date" placeholder="MM/YY"/>
+                    </div>
+                    <div class="number">
+                        <button class="but" type="button" onclick="make">Make A Payment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 18px;
+    line-height: 2;
+    font-family: serif;
+    width: 600px;
+    height: auto;
+}
+img{
+    width: 100px;
+    border: 1px solid black;
+}
+.section{
+    float: left;
+    width: 100%;
+}
+.container{
+    float: none;
+    margin: 0 700px 0 700px;
+}
+.col{
+    border: 1px solid white;
+    background-color: #ffffff;
+}
+.total{
+    background-color: yellow;
+    width: 500px;
+    height: 200px;
+}
+.total p{
+    text-align: center;
+}
+#visa{
+    margin-top: -40px;
+    margin-left: 50px;
+}
+#paypal{
+    margin-top: -40px;
+    margin-left: 90px;
+}
+#tit{
+    font-size: 24px;
+}
+.but{
+    margin-top: 50px;
+    background-color: red;
+}
+.size{
+width: 488px;
+}
